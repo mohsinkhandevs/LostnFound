@@ -28,6 +28,14 @@ connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server running locally on port ${PORT}`);
+    });
+}
+
+// CRITICAL MATCH: This must match the import in your api/index.js
+export default app;
 
 // Middleware
 app.use(cors({
