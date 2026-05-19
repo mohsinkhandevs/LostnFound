@@ -49,5 +49,6 @@ lostItemSchema.index({ item_name: 1 });
 lostItemSchema.index({ category: 1 });
 lostItemSchema.index({ status: 1 });
 lostItemSchema.index({ user_id: 1 });
+lostItemSchema.index({ item_name: 'text', description: 'text' });
 
 export default mongoose.model('LostItem', lostItemSchema);

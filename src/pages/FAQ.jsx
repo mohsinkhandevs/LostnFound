@@ -14,8 +14,8 @@ const FAQ = () => {
 
     const faqs = [
         {
-            question: "Who can use LostNoMore?",
-            answer: "LostNoMore is exclusively for FAST National University students, faculty, and staff. You need a valid university email address (@isb.nu.edu.pk or @nu.edu.pk) to register."
+            question: "Who can use the Lost & Found Portal?",
+            answer: "The University Lost & Found Portal is exclusively for FAST National University students, faculty, and staff. You need a valid university email address (@isb.nu.edu.pk or @nu.edu.pk) to register."
         },
         {
             question: "How do I report a lost item?",
@@ -71,7 +71,7 @@ const FAQ = () => {
         },
         {
             question: "Can I report items lost outside the university?",
-            answer: "LostNoMore is specifically designed for items lost or found on FAST National University campus. For items lost elsewhere, please contact local authorities or use other lost and found services."
+            answer: "The portal is specifically designed for items lost or found on FAST National University campus. For items lost elsewhere, please contact local authorities or use other lost and found services."
         },
         {
             question: "How do I contact support?",
@@ -84,7 +84,7 @@ const FAQ = () => {
             <div className="container container-sm">
                 <div className="page-header">
                     <h1>Frequently Asked Questions</h1>
-                    <p className="page-subtitle">Find answers to common questions about LostNoMore</p>
+                    <p className="page-subtitle">Find answers to common questions about our portal</p>
                 </div>
 
                 <div className="page-content">

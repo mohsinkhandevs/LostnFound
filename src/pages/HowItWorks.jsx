@@ -11,7 +11,7 @@ const HowItWorks = () => {
             <div className="container container-sm">
                 <div className="page-header">
                     <h1>How It Works</h1>
-                    <p className="page-subtitle">A simple guide to using LostNoMore</p>
+                    <p className="page-subtitle">A simple guide to using our University Lost & Found Portal</p>
                 </div>
 
                 <div className="page-content">

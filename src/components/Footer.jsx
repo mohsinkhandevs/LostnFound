@@ -20,7 +20,7 @@ const Footer = () => {
                                 <span className="logo-text">Lost & Found</span>
                             </div>
                             <p className="footer-description">
-                                Your trusted platform for reporting and finding lost items at NU.
+                                Your trusted platform for reporting and finding lost items across campus.
                                 Connecting finders with owners, one item at a time.
                             </p>
                             <div className="footer-social">
@@ -109,8 +109,8 @@ const Footer = () => {
                         <div className="footer-divider"></div>
                         <div className="footer-bottom-content">
                             <p className="copyright">
-                                © {currentYear} LostNoMore. All rights reserved.
-                            </p>
+                                © {currentYear} University Lost & Found Portal. All rights reserved.
+                             </p>
                             <div className="footer-bottom-links">
                                 <Link to="/privacy" onClick={scrollToTop}>Privacy</Link>
                                 <span className="separator">•</span>

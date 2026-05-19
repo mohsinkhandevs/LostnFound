@@ -52,12 +52,9 @@ const Register = () => {
     const handleRequestOTP = async (e) => {
         e.preventDefault();
 
-        // Validate university email - allow multiple domains
-        const allowedDomains = ['@isb.nu.edu.pk', '@nu.edu.pk'];
-        const isValidDomain = allowedDomains.some(domain => formData.email.endsWith(domain));
-
-        if (!isValidDomain) {
-            showToast(`Please use your university email (${allowedDomains.join(', ')})`, 'error');
+        // Note: Domain validation is now handled by the backend
+        if (!formData.email || !formData.email.includes('@')) {
+            showToast('Please enter a valid email address', 'error');
             return;
         }
 
@@ -193,7 +190,7 @@ const Register = () => {
                                     required
                                 />
                                 <small style={{ color: 'var(--text-tertiary)', fontSize: 'var(--font-size-xs)' }}>
-                                    Allowed: @isb.nu.edu.pk, @nu.edu.pk
+                                    Please use your authorized email domain
                                 </small>
                             </div>
 

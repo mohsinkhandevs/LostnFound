@@ -18,7 +18,7 @@ const Privacy = () => {
                     <section className="content-section">
                         <h2>Introduction</h2>
                         <p>
-                            LostNoMore ("we," "our," or "us") is committed to protecting your privacy. This Privacy
+                            Our University Lost & Found Portal ("we," "our," or "us") is committed to protecting your privacy. This Privacy
                             Policy explains how we collect, use, disclose, and safeguard your information when you
                             use our lost and found platform.
                         </p>
@@ -149,7 +149,7 @@ const Privacy = () => {
                     <section className="content-section">
                         <h2>Children's Privacy</h2>
                         <p>
-                            LostNoMore is intended for university students, faculty, and staff. We do not knowingly
+                            The portal is intended for university students, faculty, and staff. We do not knowingly
                             collect information from individuals under 18 without parental consent.
                         </p>
                     </section>
@@ -158,7 +158,7 @@ const Privacy = () => {
                         <h2>Changes to This Policy</h2>
                         <p>
                             We may update this Privacy Policy from time to time. We will notify you of significant
-                            changes via email or through a notice on our platform. Continued use of LostNoMore after
+                            changes via email or through a notice on our platform. Continued use of the portal after
                             changes constitutes acceptance of the updated policy.
                         </p>
                     </section>

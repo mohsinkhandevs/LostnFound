@@ -1,6 +1,12 @@
 // Load environment variables FIRST before any other imports
 import dotenv from 'dotenv';
-const dotenvResult = dotenv.config();
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const dotenvResult = dotenv.config({ path: join(__dirname, '../.env') });
 console.log('🔍 Dotenv loading result:', dotenvResult);
 console.log('🔍 Process CWD:', process.cwd());
 console.log('🔍 CLOUDINARY_CLOUD_NAME from process.env:', process.env.CLOUDINARY_CLOUD_NAME);
@@ -8,8 +14,6 @@ console.log('🔍 CLOUDINARY_CLOUD_NAME from process.env:', process.env.CLOUDINA
 // Now import everything else
 import express from 'express';
 import cors from 'cors';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
 import connectDB from './database/db.js';
 
 // Import routes
@@ -22,14 +26,13 @@ import adminActivityRoutes from './routes/admin-activity.routes.js';
 // Connect to MongoDB
 connectDB();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: process.env.CORS_ORIGIN || '*'
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -61,8 +64,12 @@ app.use((req, res) => {
     res.status(404).json({ error: 'Route not found' });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
-    console.log(`📁 Uploads directory: ${join(__dirname, 'uploads')}`);
-});
+// Start server conditionally (only if not on Vercel)
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running on http://localhost:${PORT}`);
+        console.log(`📁 Uploads directory: ${join(__dirname, 'uploads')}`);
+    });
+}
+
+export default app;

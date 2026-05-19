@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import './ItemCard.css';
 
-const ItemCard = ({ item, type }) => {
+const ItemCard = ({ item, type, onQuickView }) => {
     const imageUrl = item.image_path?.startsWith('http')
         ? item.image_path
         : item.image_path
-            ? `http://localhost:5000/uploads/${item.image_path}`
+            ? `/uploads/${item.image_path}`
             : null;
 
     const getStatusBadge = () => {
@@ -23,8 +23,15 @@ const ItemCard = ({ item, type }) => {
     const location = type === 'lost' ? item.last_known_location : item.location_found;
     const date = type === 'lost' ? item.date_lost : item.date_found;
 
+    const handleClick = (e) => {
+        if (onQuickView) {
+            e.preventDefault();
+            onQuickView(item, type);
+        }
+    };
+
     return (
-        <Link to={`/item/${type}/${item.id}`} className="item-card">
+        <Link to={`/item/${type}/${item.id}`} className="item-card" onClick={handleClick}>
             <div className="item-card-image">
                 {imageUrl ? (
                     <img src={imageUrl} alt={item.item_name} />

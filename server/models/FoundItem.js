@@ -49,5 +49,6 @@ foundItemSchema.index({ item_name: 1 });
 foundItemSchema.index({ category: 1 });
 foundItemSchema.index({ status: 1 });
 foundItemSchema.index({ user_id: 1 });
+foundItemSchema.index({ item_name: 'text', description: 'text' });
 
 export default mongoose.model('FoundItem', foundItemSchema);

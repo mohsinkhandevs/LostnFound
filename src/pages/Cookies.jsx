@@ -26,7 +26,7 @@ const Cookies = () => {
                     <section className="content-section">
                         <h2>How We Use Cookies</h2>
                         <p>
-                            LostNoMore uses cookies to:
+                            Our University Lost & Found Portal uses cookies to:
                         </p>
                         <ul className="feature-list">
                             <li>Keep you logged in to your account</li>
@@ -105,7 +105,7 @@ const Cookies = () => {
 
                         <h3>Impact of Disabling Cookies</h3>
                         <p>
-                            Please note that if you disable cookies, some features of LostNoMore may not function
+                            Please note that if you disable cookies, some features of our portal may not function
                             properly:
                         </p>
                         <ul className="feature-list">
@@ -144,7 +144,7 @@ const Cookies = () => {
                     <section className="content-section">
                         <h2>Your Consent</h2>
                         <p>
-                            By using LostNoMore, you consent to our use of cookies as described in this policy.
+                            By using our portal, you consent to our use of cookies as described in this policy.
                             If you don't agree with our use of cookies, you should adjust your browser settings
                             or discontinue use of the platform.
                         </p>

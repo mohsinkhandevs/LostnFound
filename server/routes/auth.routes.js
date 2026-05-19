@@ -13,13 +13,15 @@ router.post('/register/request-otp', async (req, res) => {
     try {
         const { email, fullName } = req.body;
 
-        // Validate university email - allow multiple domains
-        const allowedDomains = ['isb.nu.edu.pk', 'nu.edu.pk'];
+        // Validate university email - allow multiple domains from env
+        const allowedDomains = process.env.ALLOWED_DOMAINS 
+            ? process.env.ALLOWED_DOMAINS.split(',').map(d => d.trim())
+            : ['isb.nu.edu.pk', 'nu.edu.pk'];
         const isValidDomain = allowedDomains.some(domain => email.endsWith(domain));
 
         if (!isValidDomain) {
             return res.status(400).json({
-                error: `Please use your university email (${allowedDomains.join(', ')})`
+                error: `Please use a valid email domain (${allowedDomains.join(', ')})`
             });
         }
 
@@ -35,8 +37,9 @@ router.post('/register/request-otp', async (req, res) => {
         // Delete any existing OTPs for this email
         await OTP.deleteMany({ email });
 
-        // Save OTP with 5-minute expiration
-        const expiresAt = new Date(Date.now() + 5 * 60 * 1000); // 5 minutes
+        // Save OTP with expiration from env
+        const expirationMinutes = parseInt(process.env.OTP_EXPIRES_IN_MINUTES) || 5;
+        const expiresAt = new Date(Date.now() + expirationMinutes * 60 * 1000);
         await OTP.create({
             email,
             otp,
@@ -65,13 +68,15 @@ router.post('/register/verify-otp', async (req, res) => {
     try {
         const { email, otp, password, fullName, phoneNumber } = req.body;
 
-        // Validate university email - allow multiple domains
-        const allowedDomains = ['isb.nu.edu.pk', 'nu.edu.pk'];
+        // Validate university email - allow multiple domains from env
+        const allowedDomains = process.env.ALLOWED_DOMAINS 
+            ? process.env.ALLOWED_DOMAINS.split(',').map(d => d.trim())
+            : ['isb.nu.edu.pk', 'nu.edu.pk'];
         const isValidDomain = allowedDomains.some(domain => email.endsWith(domain));
 
         if (!isValidDomain) {
             return res.status(400).json({
-                error: `Please use your university email (${allowedDomains.join(', ')})`
+                error: `Please use a valid email domain (${allowedDomains.join(', ')})`
             });
         }
 
@@ -275,8 +280,9 @@ router.post('/forgot-password/request-otp', async (req, res) => {
         const PasswordReset = (await import('../models/PasswordReset.js')).default;
         await PasswordReset.deleteMany({ email: email.toLowerCase().trim() });
 
-        // Save OTP with 10-minute expiration
-        const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+        // Save OTP with expiration from env
+        const expirationMinutes = parseInt(process.env.OTP_EXPIRES_IN_MINUTES) || 10;
+        const expiresAt = new Date(Date.now() + expirationMinutes * 60 * 1000);
         await PasswordReset.create({
             email: email.toLowerCase().trim(),
             otp,

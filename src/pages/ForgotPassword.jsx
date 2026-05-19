@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import api from '../utils/api';
 import './ForgotPassword.css';
 
 const ForgotPassword = () => {
@@ -41,26 +42,15 @@ const ForgotPassword = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/forgot-password/request-otp', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                setSuccessMessage(data.message);
-                setStep(2);
-                setOtpTimer(600); // 10 minutes
-            } else {
-                setError(data.error);
-                if (data.showRegisterLink) {
-                    setShowRegisterLink(true);
-                }
-            }
+            const response = await api.post('/auth/forgot-password/request-otp', { email });
+            setSuccessMessage(response.data.message);
+            setStep(2);
+            setOtpTimer(600); // 10 minutes
         } catch (err) {
-            setError('Failed to send OTP. Please try again.');
+            setError(err.response?.data?.error || 'Failed to send OTP. Please try again.');
+            if (err.response?.data?.showRegisterLink) {
+                setShowRegisterLink(true);
+            }
         } finally {
             setLoading(false);
         }
@@ -74,22 +64,11 @@ const ForgotPassword = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/forgot-password/verify-otp', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, otp })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                setSuccessMessage(data.message);
-                setStep(3);
-            } else {
-                setError(data.error);
-            }
+            const response = await api.post('/auth/forgot-password/verify-otp', { email, otp });
+            setSuccessMessage(response.data.message);
+            setStep(3);
         } catch (err) {
-            setError('Failed to verify OTP. Please try again.');
+            setError(err.response?.data?.error || 'Failed to verify OTP. Please try again.');
         } finally {
             setLoading(false);
         }
@@ -114,26 +93,15 @@ const ForgotPassword = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/forgot-password/reset', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, otp, newPassword })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                setSuccessMessage(data.message);
-                // Auto-login user
-                login(data.token, data.user);
-                setTimeout(() => {
-                    navigate('/');
-                }, 2000);
-            } else {
-                setError(data.error);
-            }
+            const response = await api.post('/auth/forgot-password/reset', { email, otp, newPassword });
+            setSuccessMessage(response.data.message);
+            // Auto-login user
+            login(response.data.token, response.data.user);
+            setTimeout(() => {
+                navigate('/');
+            }, 2000);
         } catch (err) {
-            setError('Failed to reset password. Please try again.');
+            setError(err.response?.data?.error || 'Failed to reset password. Please try again.');
         } finally {
             setLoading(false);
         }
@@ -145,23 +113,12 @@ const ForgotPassword = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api/auth/forgot-password/request-otp', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                setSuccessMessage('New OTP sent to your email!');
-                setOtpTimer(600);
-                setOtp('');
-            } else {
-                setError(data.error);
-            }
+            await api.post('/auth/forgot-password/request-otp', { email });
+            setSuccessMessage('New OTP sent to your email!');
+            setOtpTimer(600);
+            setOtp('');
         } catch (err) {
-            setError('Failed to resend OTP. Please try again.');
+            setError(err.response?.data?.error || 'Failed to resend OTP. Please try again.');
         } finally {
             setLoading(false);
         }

@@ -165,18 +165,17 @@ export const sendOTPEmail = async (email, fullName, otp) => {
             subject: 'Verify Your Email - Lost & Found Portal 🔐',
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb; border-radius: 10px;">
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
+                    <div style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
                         <h1 style="color: white; margin: 0; font-size: 28px;">📦 Lost & Found Portal</h1>
                     </div>
                     
-                    <div style="background-color: white; padding: 30px; border-radius: 0 0 10px 10px;">
+                    <div style="background-color: white; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e5e7eb; border-top: none;">
                         <h2 style="color: #1f2937; margin-top: 0;">Email Verification</h2>
                         <p style="color: #4b5563; font-size: 16px;">Hello ${fullName || 'there'},</p>
                         <p style="color: #4b5563; font-size: 16px;">Thank you for registering with the Lost & Found Portal. To complete your registration, please use the following One-Time Password (OTP):</p>
                         
-                        <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; text-align: center; margin: 30px 0;">
-                            <p style="color: #6b7280; margin: 0 0 10px 0; font-size: 14px;">Your OTP Code:</p>
-                            <h1 style="color: #4f46e5; margin: 0; font-size: 42px; letter-spacing: 8px; font-weight: bold;">${otp}</h1>
+                        <div style="background-color: #f3f4f6; padding: 25px 15px; border-radius: 8px; text-align: center; margin: 30px 0;">
+                            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 36px; font-weight: bold; color: #1e3a8a; letter-spacing: 6px; white-space: nowrap; display: inline-block; padding-left: 6px;">${otp}</div>
                         </div>
                         
                         <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 4px;">
@@ -254,18 +253,17 @@ export const sendPasswordResetOTP = async (email, fullName, otp) => {
             subject: 'Password Reset Request - Lost & Found Portal 🔒',
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb; border-radius: 10px;">
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
+                    <div style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
                         <h1 style="color: white; margin: 0; font-size: 28px;">📦 Lost & Found Portal</h1>
                     </div>
                     
-                    <div style="background-color: white; padding: 30px; border-radius: 0 0 10px 10px;">
+                    <div style="background-color: white; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e5e7eb; border-top: none;">
                         <h2 style="color: #1f2937; margin-top: 0;">Password Reset Request</h2>
                         <p style="color: #4b5563; font-size: 16px;">Hello ${fullName || 'there'},</p>
                         <p style="color: #4b5563; font-size: 16px;">We received a request to reset your password. To proceed with the password reset, please use the following One-Time Password (OTP):</p>
                         
-                        <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; text-align: center; margin: 30px 0;">
-                            <p style="color: #6b7280; margin: 0 0 10px 0; font-size: 14px;">Your Password Reset OTP:</p>
-                            <h1 style="color: #4f46e5; margin: 0; font-size: 42px; letter-spacing: 8px; font-weight: bold;">${otp}</h1>
+                        <div style="background-color: #f3f4f6; padding: 25px 15px; border-radius: 8px; text-align: center; margin: 30px 0;">
+                            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 36px; font-weight: bold; color: #1e3a8a; letter-spacing: 6px; white-space: nowrap; display: inline-block; padding-left: 6px;">${otp}</div>
                         </div>
                         
                         <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 4px;">

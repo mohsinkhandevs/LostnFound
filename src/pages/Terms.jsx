@@ -18,7 +18,7 @@ const Terms = () => {
                     <section className="content-section">
                         <h2>Agreement to Terms</h2>
                         <p>
-                            By accessing and using LostNoMore, you agree to be bound by these Terms of Service
+                            By accessing and using this University Lost & Found Portal, you agree to be bound by these Terms of Service
                             and all applicable laws and regulations. If you do not agree with any of these terms,
                             you are prohibited from using this platform.
                         </p>
@@ -27,7 +27,7 @@ const Terms = () => {
                     <section className="content-section">
                         <h2>Eligibility</h2>
                         <p>
-                            LostNoMore is exclusively available to:
+                            This Lost & Found Portal is exclusively available to:
                         </p>
                         <ul className="feature-list">
                             <li>Current students of FAST National University</li>
@@ -116,13 +116,13 @@ const Terms = () => {
 
                         <h3>Your Content</h3>
                         <p>
-                            You retain ownership of photos and content you upload. By posting on LostNoMore, you
+                            You retain ownership of photos and content you upload. By posting on the portal, you
                             grant us a license to use, display, and distribute your content for platform operations.
                         </p>
 
                         <h3>Our Content</h3>
                         <p>
-                            The LostNoMore platform, including its design, code, logos, and features, is protected
+                            The Lost & Found Portal, including its design, code, logos, and features, is protected
                             by copyright and other intellectual property laws. You may not copy, modify, or
                             distribute our content without permission.
                         </p>
@@ -131,7 +131,7 @@ const Terms = () => {
                     <section className="content-section">
                         <h2>Disclaimer of Warranties</h2>
                         <p>
-                            LostNoMore is provided "as is" and "as available" without warranties of any kind. We do not:
+                            The portal is provided "as is" and "as available" without warranties of any kind. We do not:
                         </p>
                         <ul className="feature-list">
                             <li>Guarantee that items will be recovered</li>
@@ -145,7 +145,7 @@ const Terms = () => {
                     <section className="content-section">
                         <h2>Limitation of Liability</h2>
                         <p>
-                            To the maximum extent permitted by law, LostNoMore and its operators shall not be
+                            To the maximum extent permitted by law, this platform and its operators shall not be
                             liable for:
                         </p>
                         <ul className="feature-list">
@@ -172,7 +172,7 @@ const Terms = () => {
                     <section className="content-section">
                         <h2>Privacy</h2>
                         <p>
-                            Your use of LostNoMore is also governed by our Privacy Policy. Please review it to
+                            Your use of the portal is also governed by our Privacy Policy. Please review it to
                             understand how we collect, use, and protect your information.
                         </p>
                     </section>
@@ -222,7 +222,7 @@ const Terms = () => {
                     <section className="content-section">
                         <h2>Acceptance of Terms</h2>
                         <p>
-                            By using LostNoMore, you acknowledge that you have read, understood, and agree to be
+                            By using the portal, you acknowledge that you have read, understood, and agree to be
                             bound by these Terms of Service. If you do not agree, please discontinue use of the platform.
                         </p>
                     </section>

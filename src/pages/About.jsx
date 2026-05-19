@@ -10,7 +10,7 @@ const About = () => {
         <div className="static-page">
             <div className="container container-sm">
                 <div className="page-header">
-                    <h1>About LostNoMore</h1>
+                    <h1>About Lost & Found</h1>
                     <p className="page-subtitle">Connecting finders with owners, one item at a time</p>
                 </div>
 
@@ -18,7 +18,7 @@ const About = () => {
                     <section className="content-section">
                         <h2>Our Mission</h2>
                         <p>
-                            LostNoMore is dedicated to reuniting lost items with their rightful owners within the
+                            Our University Lost & Found Portal is dedicated to reuniting lost items with their rightful owners within the
                             FAST National University community. We believe that losing personal belongings shouldn't
                             mean losing them forever.
                         </p>
@@ -42,7 +42,7 @@ const About = () => {
                     <section className="content-section">
                         <h2>Our Story</h2>
                         <p>
-                            LostNoMore was created by students who experienced the frustration of losing valuable
+                            This Lost & Found Portal was created by students who experienced the frustration of losing valuable
                             items on campus. We recognized the need for a better system than traditional lost and
                             found boxes or social media posts that quickly get buried.
                         </p>
@@ -82,7 +82,7 @@ const About = () => {
                         <h2>Join Our Community</h2>
                         <p>
                             Whether you've lost something precious or found an item that belongs to someone else,
-                            LostNoMore is here to help. Together, we can make our campus a place where lost items
+                            our University Lost & Found Portal is here to help. Together, we can make our campus a place where lost items
                             find their way home.
                         </p>
                     </section>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Slate Navy Gradient -->
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    
+    <!-- Accent Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+
+    <!-- Core Navy Blue/Sky Glow Gradient -->
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <!-- Subtle Drop Shadow -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- High-Contrast Shield Base Shape -->
+  <path d="M256 24 C160 24 96 64 64 128 C64 280 160 416 256 488 C352 416 448 280 448 128 C416 64 320 24 256 24 Z" 
+        fill="url(#shieldGrad)" 
+        stroke="url(#goldGrad)" 
+        stroke-width="14" 
+        filter="url(#dropShadow)" />
+
+  <!-- Inner Protective Shield Outline -->
+  <path d="M256 52 C176 52 120 84 96 136 C96 264 176 384 256 448 C336 384 416 264 416 136 C392 84 336 52 256 52 Z" 
+        fill="none" 
+        stroke="#334155" 
+        stroke-width="4" 
+        stroke-dasharray="8 8" />
+
+  <!-- Stylized Elegant Magnifying Glass & Shield Intersection (Lost & Found Concept) -->
+  <!-- Magnifier Handle -->
+  <rect x="280" y="280" width="48" height="120" rx="24" transform="rotate(-45 304 340)" fill="url(#goldGrad)" />
+  
+  <!-- Magnifier Glass Ring -->
+  <circle cx="210" cy="210" r="92" fill="#1e293b" stroke="url(#primaryGrad)" stroke-width="20" />
+  
+  <!-- Glowing Lens Highlight -->
+  <circle cx="210" cy="210" r="72" fill="#0f172a" opacity="0.3" />
+  
+  <!-- Spark Gold Star (The 'Found' sparkle) -->
+  <path d="M210 160 L218 190 L248 190 L224 208 L234 238 L210 220 L186 238 L196 208 L172 190 L202 190 Z" 
+        fill="url(#goldGrad)" 
+        filter="drop-shadow(0px 0px 12px rgba(245, 158, 11, 0.8))" />
+</svg>
