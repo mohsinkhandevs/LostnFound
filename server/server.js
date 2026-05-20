@@ -23,9 +23,8 @@ import userRoutes from './routes/user.routes.js';
 import adminRoutes from './routes/admin.routes.js';
 import adminActivityRoutes from './routes/admin-activity.routes.js';
 
-// Initialize App and Connect to MongoDB Cluster
+// Initialize App
 const app = express();
-connectDB();
 
 // 4. Register Global Middlewares (Must be declared before routes)
 app.use(cors({
@@ -33,6 +32,19 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Database connection assurance middleware for serverless cold-start resilience
+app.use(async (req, res, next) => {
+    try {
+        await connectDB();
+        next();
+    } catch (error) {
+        console.error('⚠️ Database Connection Middleware Error:', error);
+        res.status(500).json({
+            error: 'Failed to establish database connection. Please try again later.'
+        });
+    }
+});
 
 // Serve uploaded static local files
 app.use('/uploads', express.static(join(__dirname, 'uploads')));
